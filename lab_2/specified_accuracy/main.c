@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 double personalAbs(double a) {
     if(a >= 0) {
@@ -18,13 +17,16 @@ int main() {
     printf("Please enter X\n");
     scanf_s("%lf", &X);
     double x = X > 0 ? X : X * (-1);
-    double S = 2 + pow(x / 2, 1);
+    double currentPow = 1;
+    double multiple = (x / 2) * (x / 2) * (x / 2);
+    double S = 0.5;
     int i = 1;
     double current = S;
     double previous = 0;
     do {
         previous = current;
-        current = ((i * previous_factorial * 2) + pow(personalAbs(x) / 2,i + 2 * i));
+        currentPow *= multiple;
+        current = (currentPow) / (i * previous_factorial * 2);
         S += current;
         previous_factorial *= i;
         i++;
