@@ -1,12 +1,5 @@
 #include <stdio.h>
-
-double personalAbs(double a) {
-    if(a >= 0) {
-        return a;
-    } else {
-        return (-1) * a;
-    }
-}
+#include <math.h>
 
 int main() {
     double X;
@@ -16,9 +9,9 @@ int main() {
     scanf_s("%lf", &e);
     printf("Please enter X\n");
     scanf_s("%lf", &X);
-    double x = X > 0 ? X : X * (-1);
+    X = fabs(X);
     double currentPow = 1;
-    double multiple = (x / 2) * (x / 2) * (x / 2);
+    double multiple = (X / 2) * (X / 2) * (X / 2);
     double S = 0.5;
     int i = 1;
     double current = S;
@@ -30,7 +23,7 @@ int main() {
         S += current;
         previous_factorial *= i;
         i++;
-    } while(personalAbs(current - previous) > e);
+    } while(fabs(current - previous) > e);
     printf("The sum of this series with these parameters is equal to %f", S);
     return 0;
 }
