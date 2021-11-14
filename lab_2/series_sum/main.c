@@ -9,10 +9,10 @@ int main() {
     scanf_s("%d", &n);
     printf("Please enter X\n");
     scanf_s("%lf", &X);
-    double x = X > 0 ? X : X * (-1);
-    double S = 2 + pow(x / 2, n);
+    X = fabs(X);
+    double S = 2 + pow(X / 2, n);
     for(int i = 1; i <= n; i++) {
-        S += i * previous_factorial * 2 + pow(x / 2,  n + 2 * i);
+        S += i * previous_factorial * 2 + pow(X / 2,  n + 2 * i);
         previous_factorial *= i;
     }
     printf("The sum of this series with these parameters is equal to %f", S);
